@@ -80,6 +80,7 @@ class DB
         return $this->pdo->exec($sql);
 
     }
+    
     public function save($array){
 
         if(isset($array['id'])){

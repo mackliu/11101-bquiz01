@@ -80,7 +80,7 @@ class DB
         return $this->pdo->exec($sql);
 
     }
-    
+
     public function save($array){
 
         if(isset($array['id'])){
@@ -149,6 +149,6 @@ function dd($array){
 
 
 $Bot=new DB('bottom');
-
+$Title=new DB('title');
 
 ?>

@@ -136,6 +136,64 @@ class DB
 
 }
 
+class Str{
+    public $header;
+    public $imgHead;
+    public $textHead;
+    public $updateImg;
+    public $acc;
+    public $pw;
+    public $mainText;
+    public $mainHref;
+    public $subText;
+    public $subHref;
+    public $addBtn;
+    public $addModalHeader;
+    public $addModalcol;
+    public $table;
+    public function __construct($table)
+    {
+        $this->table=$table;
+        switch($table){
+            case 'title':
+                $this->header="網站標題管理";
+                $this->imgHead="網站標題";
+                $this->textHead="替代文字";
+                $this->updateImg="更新圖片";
+                $this->addBtn="新增網站標題圖片";
+                $this->addModalHeader="新增標題區圖片";
+                $this->addModalcol=["標題區圖片","標題區替代文字"];
+            break;
+            case 'ad':
+                $this->header="動態廣告文字管理";
+                $this->textHead="動態廣告文字";
+                $this->addBtn="新增動態文字廣告";
+                $this->addModalHeader="新增動態文字廣告";
+                $this->addModalcol=["動態文字廣告"];
+            break;
+            case 'image':
+                $this->header="校園映像資料管理";
+                $this->imgHead="校園映像資料圖片";
+                $this->updateImg="更換圖片";
+                $this->addBtn="新增校園映像圖片";
+                $this->addModalHeader="新增校園映像圖片";
+                $this->addModalcol=["校園映像圖片"];                
+            break;
+            case 'mvim':
+            break;
+            case 'total':
+            break;
+            case 'bottom':
+            break;
+            case 'news':
+            break;
+            case 'admin':
+            break;
+            case 'menu':
+            break;
+        }
+    }
+}
 
 function to($url){
     header("location:".$url);
@@ -150,5 +208,9 @@ function dd($array){
 
 $Bot=new DB('bottom');
 $Title=new DB('title');
+$Ad=new DB('ad');
+$Image=new DB('image');
+
+$Str=new Str($do);
 
 ?>

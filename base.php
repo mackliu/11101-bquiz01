@@ -7,7 +7,7 @@ class DB
     protected $dsn="mysql:host=localhost;charset=utf8;dbname=db15";
     protected $user='root';
     protected $pw='';
-    protected $table;
+    public $table;
     protected $pdo;
 
     public function __construct($table)
@@ -138,8 +138,7 @@ class DB
 
 class Str{
     public $header;
-    public $imgHead;
-    public $textHead;
+    public $tdHead;
     public $updateImg;
     public $acc;
     public $pw;
@@ -157,8 +156,7 @@ class Str{
         switch($table){
             case 'title':
                 $this->header="網站標題管理";
-                $this->imgHead="網站標題";
-                $this->textHead="替代文字";
+                $this->tdHead=["網站標題","替代文字"];
                 $this->updateImg="更新圖片";
                 $this->addBtn="新增網站標題圖片";
                 $this->addModalHeader="新增標題區圖片";
@@ -166,30 +164,56 @@ class Str{
             break;
             case 'ad':
                 $this->header="動態廣告文字管理";
-                $this->textHead="動態廣告文字";
+                $this->tdHead=["動態廣告文字"];
                 $this->addBtn="新增動態文字廣告";
                 $this->addModalHeader="新增動態文字廣告";
                 $this->addModalcol=["動態文字廣告"];
             break;
             case 'image':
                 $this->header="校園映像資料管理";
-                $this->imgHead="校園映像資料圖片";
+                $this->tdHead=["校園映像資料圖片"];
                 $this->updateImg="更換圖片";
                 $this->addBtn="新增校園映像圖片";
                 $this->addModalHeader="新增校園映像圖片";
                 $this->addModalcol=["校園映像圖片"];                
             break;
             case 'mvim':
+                $this->header="動畫圖片管理";
+                $this->tdHead=["動畫圖片"];
+                $this->updateImg="更換動畫";
+                $this->addBtn="新增動畫圖片";
+                $this->addModalHeader="新增動畫圖片";
+                $this->addModalcol=["動畫圖片"];                     
             break;
             case 'total':
+                $this->header="進站總人數管理";
+                $this->tdHead=["進站總人數"];
             break;
             case 'bottom':
+                $this->header="頁尾版權資料管理";
+                $this->tdHead=["頁尾版權資料"];
             break;
             case 'news':
+                $this->header="最新消息資料管理";
+                $this->tdHead=["最新消息資料"];
+                $this->addBtn="新增最新消息資料";
+                $this->addModalHeader="新增最新消息資料";
+                $this->addModalcol=["最新消息資料"];                
             break;
             case 'admin':
+                $this->header="管理者帳號管理";
+                $this->tdHead=["帳號","密碼"];
+                $this->addBtn="新增管理者帳號";
+                $this->addModalHeader="新增管理者帳號";
+                $this->addModalcol=["帳號","密碼","確認密碼"];   
             break;
             case 'menu':
+                $this->header="管理者帳號管理";
+                $this->tdHead=["主選單名稱","選單連結網址","次選單數"];
+                $this->addBtn="新增主選單";
+                $this->addModalHeader="新增主選單";
+                $this->addModalcol=["主選單名稱","選單連結網址"];
+                $this->updateImg="編輯次選單";              
             break;
         }
     }
@@ -207,9 +231,14 @@ function dd($array){
 
 
 $Bot=new DB('bottom');
+$Total=new DB('total');
 $Title=new DB('title');
 $Ad=new DB('ad');
 $Image=new DB('image');
+$Mvim=new DB('mvim');
+$News=new DB('news');
+$Admin=new DB('admin');
+$Menu=new DB('menu');
 
 $Str=new Str($do);
 

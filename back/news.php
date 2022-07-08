@@ -5,11 +5,10 @@
         <table width="100%">
             <tbody>
                 <tr class="yel">
-                    <td width="45%"><?=$Str->tdHead[0];?></td>
-                    <td width="23%"><?=$Str->tdHead[1];?></td>
-                    <td width="7%">顯示</td>
-                    <td width="7%">刪除</td>
-                    <td></td>
+                    <td width="80%"><?=$Str->tdHead[0];?></td>
+                    <td width="10%">顯示</td>
+                    <td>刪除</td>
+                    
                 </tr>
                 <?php 
                     
@@ -18,21 +17,15 @@
                 ?>
                 <tr >
                     <td>
-                        <img src="./img/<?=$row['img'];?>" style="width:300px;heigh:30px;">
+                        <textarea name="text[]" style="width:95%;height:60px"><?=$row['text'];?></textarea>
                     </td>
                     <td>
-                        <input type="text" name="text[]" value="<?=$row['text'];?>">
-                    </td>
-                    <td>
-                        <input type="radio" name="sh" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
+                        <input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
                     </td>
                     <td>
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
                     </td>
-                    <td>
-                        <input type="button" value="<?=$Str->updateImg;?>"
-                            onclick="op('#cover','#cvr','./modal/update_title.php?id=<?=$row['id'];?>')">
-                    </td>
+
                 </tr>
                     <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                 <?php 

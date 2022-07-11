@@ -213,7 +213,7 @@ class Str{
                 $this->addModalcol=["帳號","密碼","確認密碼"];   
             break;
             case 'menu':
-                $this->header="管理者帳號管理";
+                $this->header="選單管理";
                 $this->tdHead=["主選單名稱","選單連結網址","次選單數"];
                 $this->addBtn="新增主選單";
                 $this->addModalHeader="新增主選單";
@@ -244,8 +244,9 @@ $Mvim=new DB('mvim');
 $News=new DB('news');
 $Admin=new DB('admin');
 $Menu=new DB('menu');
-
-$Str=new Str($do);
+if(isset($do)){
+    $Str=new Str($do);
+}
 
 
 

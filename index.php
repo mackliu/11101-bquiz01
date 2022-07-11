@@ -25,8 +25,34 @@ include "base.php";?>
              	<div id="lf" style="float:left;">
             		<div id="menuput" class="dbor">
                     <!--主選單放此-->
-                    	                            <span class="t botli">主選單區</span>
-                                                </div>
+                    	<span class="t botli">主選單區</span>
+						<?php
+							$mms=$Menu->all(['parent'=>0,"sh"=>1]);
+							foreach($mms as $mm){
+								echo "<div class='mainmu'>";
+								echo "<a href='{$mm['href']}'>";
+								echo $mm['text'];
+								echo "</a>";
+
+								//撈出次選單
+								$subs=$Menu->all(['parent'=>$mm['id']]);
+								echo "<div class='mw'>";
+								foreach($subs as $sub){
+									echo "<div class='mainmu2'>";
+									echo "<a href='{$sub['href']}'>";
+									echo $sub['text'];
+									echo "</a>";
+									echo "</div>";
+								}
+								echo "</div>";
+								echo "</div>";
+
+							}
+
+						?>
+						
+						
+                    </div>
                     <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     	<span class="t">進站總人數 : 
 							<?=$Total->find(1)['total'];?>

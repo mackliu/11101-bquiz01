@@ -43,22 +43,7 @@ include "base.php";?>
 					}
 					
 				?>
-                <div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
-                    	<script>
-						$(".sswww").hover(
-							function ()
-							{
-								$("#alt").html(""+$(this).children(".all").html()+"").css({"top":$(this).offset().top-50})
-								$("#alt").show()
-							}
-						)
-						$(".sswww").mouseout(
-							function()
-							{
-								$("#alt").hide()
-							}
-						)
-                        </script>
+                
                                  <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 	<!--右邊-->   
                 	<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=admin&#39;)">管理登入</button>

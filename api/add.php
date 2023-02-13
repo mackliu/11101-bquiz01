@@ -24,6 +24,7 @@ switch($_POST['table']){
         $data['text']=$_POST['text'];
         $data['href']=$_POST['href'];
         $data['sh']=1;
+        $data['parent']=0;
     break;
     default:
         $data['sh']=1;

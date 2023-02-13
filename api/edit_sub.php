@@ -23,6 +23,7 @@ if(isset($_POST['text2'])){
             $data['text']=$text;
             $data['href']=$_POST['href2'][$idx];
             $data['parent']=$_POST['parent'];
+            $data['sh']=1;
             $Menu->save($data);
         }
     }
